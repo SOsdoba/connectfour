@@ -102,7 +102,7 @@
             this.lblMessage.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tblMain.SetColumnSpan(this.lblMessage, 2);
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMessage.Font = new System.Drawing.Font("Stencil", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMessage.Font = new System.Drawing.Font("Stencil", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMessage.Location = new System.Drawing.Point(3, 360);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(673, 90);

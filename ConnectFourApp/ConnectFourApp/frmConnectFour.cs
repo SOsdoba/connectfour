@@ -12,6 +12,8 @@ namespace ConnectFourApp
         {
             InitializeComponent();
             btnStart.Click += BtnStart_Click;
+            ddColorA.SelectedIndexChanged += DdColor_SelectedIndexChanged;
+            ddColorB.SelectedIndexChanged += DdColor_SelectedIndexChanged;
             lsttopbuttons = new() { btn0, btn1, btn2, btn3, btn4, btn5};
             foreach (Button btn in tblGrid.Controls) { btn.Enabled = false; }
             lstbuttons = new()
@@ -27,6 +29,11 @@ namespace ConnectFourApp
                 b.DataBindings.Add("BackColor", spot, "BackColor");
             });
             lblMessage.DataBindings.Add("Text", game, "GameStatusDescription");
+        }
+
+        private void DdColor_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            game.ColorSelected();
         }
 
         private void DoTurn(Button btn)

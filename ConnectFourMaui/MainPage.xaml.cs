@@ -19,7 +19,7 @@ namespace ConnectFourMaui
                 btn30, btn31, btn32, btn33, btn34, btn35
             };
         }
-
+       
         private void StartBtn_Clicked(object sender, EventArgs e)
         {
             string a = listview1.SelectedItem.ToString();
@@ -30,6 +30,11 @@ namespace ConnectFourMaui
         private void btn_Clicked(object sender, EventArgs e)
         {
             game.TakeSpot(lstbuttons.IndexOf((Button)sender));
+        }
+
+        private void listview_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            game.ColorSelected();
         }
     }
 }

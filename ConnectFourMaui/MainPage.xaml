@@ -5,12 +5,14 @@
              BackgroundColor="Black">
 
     <Grid ColumnDefinitions="*,*">
-
+      
         <Grid Grid.Column="0" BackgroundColor="Black">
             <VerticalStackLayout>
                 <Label TextColor="White" Margin="0, 20, 0, 0" Text="Connect Four" FontFamily="OpenSans-Semibold" FontSize="30" HorizontalTextAlignment="Center" />
+                
                 <Label BackgroundColor="LightBlue" WidthRequest="170" Margin="0, 40, 0, 5" Text="Color for Player A" FontSize="15" HorizontalTextAlignment="Center"  />
-                <ListView x:Name="listview1" BackgroundColor="White" WidthRequest="170" HeightRequest="30" SelectedItem="Navy">
+            
+                <ListView x:Name="listview1" SelectedItem="Navy" PropertyChanged="listview_PropertyChanged" BackgroundColor="White" WidthRequest="170" HeightRequest="20"   >
                     <ListView.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Navy</x:String>
@@ -23,8 +25,9 @@
                         </x:Array>
                     </ListView.ItemsSource>
                 </ListView>
+                
                 <Label BackgroundColor="LightPink" WidthRequest="170" Margin="0, 40, 0, 5" Text="Color for Player B" HorizontalTextAlignment="Center" FontSize="15" />
-                <ListView x:Name="listview2" BackgroundColor="White" WidthRequest="170" HeightRequest="30" SelectedItem="HotPink">
+                <ListView x:Name="listview2" PropertyChanged="listview_PropertyChanged" BackgroundColor="White" WidthRequest="170" HeightRequest="30" SelectedItem="HotPink">
                     <ListView.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>HotPink</x:String>
@@ -42,7 +45,7 @@
         </Grid>
 
         <Grid Grid.Column="1" Margin="0, 15, 15, 15" BackgroundColor="Black" ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*">
-            <Button x:Name="btn0" Grid.Column="0" Grid.Row="0" Style="{StaticResource connectfour-buttons}" Clicked="btn_Clicked" BindingContext="{Binding Spots[0]}" BackgroundColor="{Binding BackColorMaui}"/>
+            <Button x:Name="btn0" Grid.Column="0" Grid.Row="0" Style="{StaticResource toprowbuttons}" Clicked="btn_Clicked" BindingContext="{Binding Spots[0]}" BackgroundColor="{Binding BackColorMaui}"/>
             <Button x:Name="btn1" Grid.Column="1" Grid.Row="0" Style="{StaticResource connectfour-buttons}" Clicked="btn_Clicked" BindingContext="{Binding Spots[1]}" BackgroundColor="{Binding BackColorMaui}"/>
             <Button x:Name="btn2" Grid.Column="2" Grid.Row="0" Style="{StaticResource connectfour-buttons}" Clicked="btn_Clicked" BindingContext="{Binding Spots[2]}" BackgroundColor="{Binding BackColorMaui}"/>
             <Button x:Name="btn3" Grid.Column="3" Grid.Row="0" Style="{StaticResource connectfour-buttons}" Clicked="btn_Clicked" BindingContext="{Binding Spots[3]}" BackgroundColor="{Binding BackColorMaui}"/>

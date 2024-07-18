@@ -11,6 +11,7 @@ namespace ConnectFourSystem
 
         public enum GameStatusEnum { NotStarted, Playing, Winner, Tie }
         public enum TurnEnum { None, A, B }
+        public bool _colorClicked = false;
 
         List<List<Spot>> lstcolumns = new();
         List<Spot> lsttopbuttons = new();
@@ -18,12 +19,12 @@ namespace ConnectFourSystem
 
         GameStatusEnum _gamestatus = GameStatusEnum.NotStarted;
         TurnEnum _currentturn = TurnEnum.None;
-
+       
         public Game()
         {
             for (int i = 0; i < 36; i++)
             {
-                ;
+ //AS Extra ; below
                 this.Spots.Add(new Spot());
             }
             lsttopbuttons = new() { this.Spots[0], this.Spots[1], this.Spots[2], this.Spots[3], this.Spots[4], this.Spots[5] };
@@ -99,10 +100,20 @@ namespace ConnectFourSystem
                 this.InvokePropertyChanged("GameStatusDescription");
             }
         }
+        public bool ColorClicked
+        {
+            get => _colorClicked;
+            private set
+            {
+                _colorClicked = value;
+                this.InvokePropertyChanged("GameStatusDescription");
+            }
+        }
 
-        public string GameStatusDescription { get => this.GameStatus.ToString() == GameStatusEnum.NotStarted.ToString() ? "Click Start to begin the game." : this.GameStatus.ToString() == GameStatusEnum.Playing.ToString() ? $"{this.GameStatus.ToString()} Current Turn:  {this.CurrentTurn.ToString()}" : this.GameStatus.ToString() == GameStatusEnum.Tie.ToString() ? "No winner. Start over." : $"Great Job! Player " + this.CurrentTurn.ToString() + " is the winner."; }
+        public string GameStatusDescription { get => (this.GameStatus.ToString() == GameStatusEnum.NotStarted.ToString() ? "Click Start to begin the game." : this.GameStatus.ToString() == GameStatusEnum.Playing.ToString() ? $"{this.GameStatus.ToString()} Current Turn:  {this.CurrentTurn.ToString()}" : this.GameStatus.ToString() == GameStatusEnum.Tie.ToString() ? "No winner. Start over." : $"Great Job! Player " + this.CurrentTurn.ToString() + " is the winner.") + (ColorClicked == true ? Environment.NewLine + "Restart the game to play with your new selected color." : ""); }
         public TurnEnum Winner { get; private set; }
 
+        
         public System.Drawing.Color SpotNotStartedColor { get; set; } = System.Drawing.Color.DarkGray;
         public System.Drawing.Color GameStartColor { get; set; } = System.Drawing.Color.Ivory;
         public System.Drawing.Color SpotWinnerColor { get; set; } = System.Drawing.Color.Red;
@@ -111,8 +122,17 @@ namespace ConnectFourSystem
         public System.Drawing.Color PlayerBColor { get; set; }
         private System.Drawing.Color PlayerColor { get => this.CurrentTurn.ToString() == TurnEnum.A.ToString() ? PlayerAColor : PlayerBColor; }
 
-        public void StartGame(String a = default, string b = default)
+        public void ColorSelected()
         {
+            if(GameStatus != GameStatusEnum.NotStarted)
+            {
+                ColorClicked = true;
+            }
+        }
+        //AS String should be lowercase
+        public void StartGame(string a = default, string b = default)
+        {
+            ColorClicked = false;
             if (a == default) a = "Navy"; 
             if (b == default) b = "HotPink";
             this.Spots.ForEach(spot => spot.BackColor = this.GameStartColor);
