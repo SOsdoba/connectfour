@@ -22,9 +22,13 @@ namespace ConnectFourMaui
        
         private void StartBtn_Clicked(object sender, EventArgs e)
         {
-            string a = listview1.SelectedItem.ToString();
-            string b = listview2.SelectedItem.ToString();
-            game.StartGame(a,b);
+            
+            if (Picker1.SelectedItem != null && Picker2.SelectedItem != null)
+            {
+                string a = Picker1.SelectedItem.ToString();
+                string b = Picker2.SelectedItem.ToString();
+                game.StartGame(a, b);
+            }
         }
 
         private void btn_Clicked(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace ConnectFourMaui
             game.TakeSpot(lstbuttons.IndexOf((Button)sender));
         }
 
-        private void listview_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             game.ColorSelected();
         }
