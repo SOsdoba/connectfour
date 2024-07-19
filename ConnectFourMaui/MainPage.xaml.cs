@@ -4,13 +4,19 @@ namespace ConnectFourMaui
 {
     public partial class MainPage : ContentPage
     {
-        Game game = new();
+        Game activegame;
+        List<Game> lstgame = new() { new Game(), new Game(), new Game() };
         List<Button> lstbuttons;
 
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = game;
+            lstgame.ForEach(g => g.ScoreChanged += G_ScoreChanged);
+            Game1Rb.BindingContext = lstgame[0];
+            Game2Rb.BindingContext = lstgame[1];
+            Game3Rb.BindingContext = lstgame[2];
+            activegame = lstgame[0];
+            this.BindingContext = activegame;
             lstbuttons = new()
             {
                 btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
@@ -19,26 +25,48 @@ namespace ConnectFourMaui
                 btn30, btn31, btn32, btn33, btn34, btn35
             };
         }
-       
+
+        private void G_ScoreChanged(object sender, EventArgs e)
+        {
+            ScoreLbl.Text = Game.Score;
+        }
+
         private void StartBtn_Clicked(object sender, EventArgs e)
         {
-            
-            if (Picker1.SelectedItem != null && Picker2.SelectedItem != null)
+            if(activegame.GameStatus == Game.GameStatusEnum.NotStarted)
             {
-                string a = Picker1.SelectedItem.ToString();
-                string b = Picker2.SelectedItem.ToString();
-                game.StartGame(a, b);
+                if (Picker1.SelectedItem != null && Picker2.SelectedItem != null)
+                {
+                    string a = Picker1.SelectedItem.ToString();
+                    string b = Picker2.SelectedItem.ToString();
+                    activegame.StartGame(a, b);
+                }
             }
+            else
+            {
+                activegame.StopGame();
+            }
+            
         }
 
         private void btn_Clicked(object sender, EventArgs e)
         {
-            game.TakeSpot(lstbuttons.IndexOf((Button)sender));
+            activegame.TakeSpot(lstbuttons.IndexOf((Button)sender));
         }
 
         private void Picker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            game.ColorSelected();
+            activegame.ColorSelected();
+        }
+
+        private void Game_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            if (rb.IsChecked && rb.BindingContext != null)
+            {
+                activegame = (Game)rb.BindingContext;
+                this.BindingContext = activegame;
+            }
         }
     }
 }

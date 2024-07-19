@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ConnectFourMaui.MainPage"
              BackgroundColor="Black">
-    
+
     <Grid ColumnDefinitions="*,*">
-     
-        <Grid Grid.Column="0" BackgroundColor="Black">
-            <VerticalStackLayout>
-                <Label TextColor="White" Margin="0, 20, 0, 0" Text="Connect Four" FontFamily="OpenSans-Semibold" FontSize="30" HorizontalTextAlignment="Center" />
-                
-               <Label BackgroundColor="LightBlue" WidthRequest="170" Margin="0, 40, 0, 5" Text="Color for Player A" FontSize="15" HorizontalTextAlignment="Center"  />
-               <Picker x:Name="Picker1" SelectedIndexChanged="Picker_SelectedIndexChanged" BackgroundColor="White" WidthRequest="170" HeightRequest="35">
+
+        <Grid Grid.Column="0" BackgroundColor="Black" RowDefinitions="*">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <Label Grid.Row="0" TextColor="White" Text="Connect Four" Margin="0,20,0,20" FontFamily="OpenSans-Semibold" FontSize="30" HorizontalTextAlignment="Center" />
+
+                <Label Grid.Row="1" BackgroundColor="LightBlue" Margin="0,2,0,8"  WidthRequest="170" HeightRequest="20" Text="Color for Player A" FontSize="12" HorizontalTextAlignment="Center"  />
+                <Picker Grid.Row="2" x:Name="Picker1" SelectedIndexChanged="Picker_SelectedIndexChanged" Margin="0,0,0,8" BackgroundColor="White" WidthRequest="170" HeightRequest="33" >
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Navy</x:String>
@@ -24,9 +24,9 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                
-                <Label BackgroundColor="LightPink" WidthRequest="170" Margin="0, 40, 0, 5" Text="Color for Player B" HorizontalTextAlignment="Center" FontSize="15" />
-                <Picker x:Name="Picker2" SelectedIndexChanged="Picker_SelectedIndexChanged" BackgroundColor="White" WidthRequest="170" HeightRequest="35">
+
+                <Label Grid.Row="3" BackgroundColor="LightPink" WidthRequest="170" Margin="0,12,0,8" HeightRequest="20" Text="Color for Player B" HorizontalTextAlignment="Center" FontSize="12" />
+                <Picker Grid.Row="4" x:Name="Picker2" SelectedIndexChanged="Picker_SelectedIndexChanged" Margin="0,0,0,12" BackgroundColor="White" WidthRequest="170" HeightRequest="33" >
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>HotPink</x:String>
@@ -37,10 +37,19 @@
                             <x:String>Violet</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
-                    </Picker>
-                    <Button x:Name="StartBtn" Text="Start" TextColor="Black" Margin="0, 40, 0, 0" WidthRequest="170" Style="{StaticResource start-button}" Clicked="StartBtn_Clicked"/>
-                <Label Text="{Binding GameStatusDescription}" TextColor="White" Margin="0, 10, 0, 15" FontSize="15" HorizontalTextAlignment="Center"/>
-            </VerticalStackLayout>
+                </Picker>
+                <Button Grid.Row="5" x:Name="StartBtn" Text="{Binding StartButtonText}" TextColor="Black" Margin="0,2,0,10" WidthRequest="170" Style="{StaticResource start-button}" Clicked="StartBtn_Clicked"/>
+                <Label Grid.Row="6" Text="{Binding GameStatusDescription}" TextColor="White" Margin="0,3,0,30" FontSize="15" HorizontalTextAlignment="Center"/>
+                <Line Grid.Row="7" BackgroundColor="White" HeightRequest="3" Margin="0,0,0,0"  />
+
+                <HorizontalStackLayout Grid.Row="8" HorizontalOptions="Center" Margin="0,20,0,20" >
+                    <RadioButton x:Name="Game1Rb" BorderColor="White" TextColor="White" Content="{Binding GameName}" CheckedChanged="Game_CheckedChanged" IsChecked="True"/>
+                    <RadioButton x:Name="Game2Rb" BorderColor="White" TextColor="White" Content="{Binding GameName}" CheckedChanged="Game_CheckedChanged"/>
+                    <RadioButton x:Name="Game3Rb" BorderColor="White" TextColor="White" Content="{Binding GameName}" CheckedChanged="Game_CheckedChanged"/>
+                </HorizontalStackLayout>
+                <Label Grid.Row="9" x:Name="ScoreLbl" HorizontalTextAlignment="Center" TextColor="White"/>
+
+            </Grid>
         </Grid>
 
         <Grid Grid.Column="1" Margin="0, 15, 15, 15" BackgroundColor="Black" ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*">
