@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-start">
+    <br/>
+    <h1 class="display-4">Connect Four</h1>
+    <br/>
+    <br/>
+    <h2>Overview</h2>
+    <p>This repo outlines the software requirements for the age old classic, ‘Connect Four’. The program will allow for 2 players to play against each other, each choosing the color they wish to use, with a default color set as well. The goal of the game is to end up with a row of 4 of your color.</p>
+    <br/>
+    <h2>The Game</h2>
+    <p>At the start of the game, the user is prompted to click the start button. Until then, everything is disabled. Once started, each player has a turn to place his/her color token into an empty space. As with the real game, the user drops a token into a column, after which it falls to the lowest available (empty) spot. When a user completes a row of 4 (vertical or horizontal), the game is over. The message box displays “Great Job! Play (x) is the winner.” If all boxes are filled without any of the players achieving a row of 4, the message box should display, “No winner, start over”.</p>
+    <br/>
+    <h2>Software Implementation</h2>
+    <p>The UI elements listed below will ensure a strong, durable system.
+    <ul>
+        <li>6 * 6 grid</li>
+        <li>Row of buttons along the left side of the screen. Top to bottom: Dropdown of colors for Player A, dropdown of colors for Player B, and a start button.</li>
+        <li>A label at the bottom will display the current turn as well as the winning/losing results.</li>
+    </ul>
+    </p>
+    <br/>
+    <h2>Game Process and Rules</h2>
+    <p>
+        <ol>
+            <li>Each player selects a color from a dropdown. This color will be the color token that represents them throughout the game. A default color will be set to each player as well.</li>
+            <li>Once the start button is clicked, the grid is enabled.</li>
+            <li>Users can choose a column to drop their token through. They can only select the top cell of each column, after which the token will drop to the lowest available cell in the column. If there aren't any cells available, the user will have to click on another cell to continue.'</li>
+            <li>The first player to complete a row of 4 (vertically or horizontally) will cause the game to end. A message will be displayed, "Great Job! Player (x) is the winner."</li>
+            <li>If all cells are filled but there isn't a row of 4, the message displays, "No winner, start over."</li>
+            <li>Clicking start in the middle of the game clears the cells and starts over.</li>
+        </ol>
+    </p>
+
+</div>

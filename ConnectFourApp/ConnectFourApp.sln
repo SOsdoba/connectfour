@@ -5,11 +5,13 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourApp", "ConnectFourApp\ConnectFourApp.csproj", "{526F9726-E347-4B2E-A701-BE369F6C4261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourSystem", "..\ConnectFourSystem\ConnectFourSystem.csproj", "{36777C14-4FE2-44A2-BB01-E3D6694EBC52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourSystem", "..\ConnectFourSystem\ConnectFourSystem.csproj", "{36777C14-4FE2-44A2-BB01-E3D6694EBC52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourTest", "..\ConnectFourTest\ConnectFourTest.csproj", "{C989E8E8-CEB6-42CA-A60B-F369AA38F046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourTest", "..\ConnectFourTest\ConnectFourTest.csproj", "{C989E8E8-CEB6-42CA-A60B-F369AA38F046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourMaui", "..\ConnectFourMaui\ConnectFourMaui.csproj", "{78E26634-30C3-4D56-907A-7DD420505C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourMaui", "..\ConnectFourMaui\ConnectFourMaui.csproj", "{78E26634-30C3-4D56-907A-7DD420505C77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourWeb", "ConnectFourWeb\ConnectFourWeb.csproj", "{846A766F-9DF3-402C-9793-326449524E96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{78E26634-30C3-4D56-907A-7DD420505C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78E26634-30C3-4D56-907A-7DD420505C77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78E26634-30C3-4D56-907A-7DD420505C77}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{846A766F-9DF3-402C-9793-326449524E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{846A766F-9DF3-402C-9793-326449524E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{846A766F-9DF3-402C-9793-326449524E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{846A766F-9DF3-402C-9793-326449524E96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
