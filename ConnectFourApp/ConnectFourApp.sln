@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourTest", "..\Conne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourMaui", "..\ConnectFourMaui\ConnectFourMaui.csproj", "{78E26634-30C3-4D56-907A-7DD420505C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFourWeb", "ConnectFourWeb\ConnectFourWeb.csproj", "{846A766F-9DF3-402C-9793-326449524E96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFourWeb", "ConnectFourWeb\ConnectFourWeb.csproj", "{846A766F-9DF3-402C-9793-326449524E96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
