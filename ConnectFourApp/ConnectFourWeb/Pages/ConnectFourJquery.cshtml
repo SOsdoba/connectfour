@@ -161,12 +161,15 @@
         const b = "b";
         let currentTurn = a;
         let gameover = false;
+        let startgame = false;
         let msg;
         let allspots;
         let topspots;
         const winningSets = [];
         const columns = [];
 
+        //Before clicking start if you click one of the buttons in the top row 
+        // all the spots change to grey.
         $(document).ready(function () {
             msg = document.querySelector("#msg");
             allspots = [...$(".spot")];
@@ -206,6 +209,7 @@
 
         function StartGame() {
             gameover = false;
+            startgame = true;
             $(allspots).removeClass("colora").removeClass("colorb").removeClass("tie").removeClass("winner").removeClass("disabled").addClass("startspot");
             currentTurn = a;
             showCurrentTurn();
@@ -215,14 +219,16 @@
             let target = event.target;
             let col = columns.find(c => c.includes(target));
             let spot = col.find(s => s.classList.contains("startspot"));
-
-            $(spot).removeClass("startspot");
-            currentTurn == a ? $(spot).addClass("colora") : $(spot).addClass("colorb");
-            CheckTieWinner();
-            if (gameover == false) {
-                currentTurn = currentTurn == a ? b : a;
-                showCurrentTurn();
+            if(startgame == true){
+                $(spot).removeClass("startspot");
+                currentTurn == a ? $(spot).addClass("colora") : $(spot).addClass("colorb");
+                CheckTieWinner();
+                if (gameover == false) {
+                    currentTurn = currentTurn == a ? b : a;
+                    showCurrentTurn();
+                }
             }
+           
         }
 
         function CheckTieWinner() {
