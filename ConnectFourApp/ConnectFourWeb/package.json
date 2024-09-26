@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@types/jquery": "^3.5.31",
+    "eslint": "^9.11.1"
+  }
+}

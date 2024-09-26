@@ -1,0 +1,160 @@
+﻿@page
+@model ConnectFourWeb.Pages.ConnectFourTypeScriptModel
+@{
+}
+<div class="row">
+    <div class="col-3">
+        <h3>Connect Four jQuery</h3>
+        <br />
+        <label>Color for Player A</label>
+        <br />
+        <input type="color" id="colorselectora" name="color" value="#0026ff">
+        <br />
+        <br />
+        <label>Color for Player B</label>
+        <br />
+        <input type="color" id="colorselectorb" name="color" value="#ff006e">
+        <br />
+        <br />
+        <button class="btn start" id="btnStart">Start</button>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <table>
+                <tr>
+                    <td>
+                        <button class="spot top c1 h1 v1" id="s1"></button>
+                    </td>
+                    <td>
+                        <button class="spot top c2 h1 h2 v4" id="s2"></button>
+                    </td>
+                    <td>
+                        <button class="spot top c3 h1 h2 h3 v7" id="s3"></button>
+                    </td>
+                    <td>
+                        <button class="spot top c4 h1 h2 h3 v10" id="s4"></button>
+                    </td>
+                    <td>
+                        <button class="spot top c5 h2 h3 v13" id="s5"></button>
+                    </td>
+                    <td>
+                        <button class="spot top c6 h3 v16" id="s6"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="spot c1 h4 v1 v2" id="s7"></button>
+                    </td>
+                    <td>
+                        <button class="spot c2 h4 h5 v4 v5" id="s8"></button>
+                    </td>
+                    <td>
+                        <button class="spot c3 h4 h5 h6 v7 v8" id="s9"></button>
+                    </td>
+                    <td>
+                        <button class="spot c4 h4 h5 h6 v10 v11" id="s10"></button>
+                    </td>
+                    <td>
+                        <button class="spot c5 h5 h6 v13 v14" id="s11"></button>
+                    </td>
+                    <td>
+                        <button class="spot c6 h6 v16 v17" id="s12"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="spot c1 h7 v1 v2 v3" id="s13"></button>
+                    </td>
+                    <td>
+                        <button class="spot c2 h7 h8 v4 v5 v6" id="s14"></button>
+                    </td>
+                    <td>
+                        <button class="spot c3 h7 h8 h9 v7 v8 v9" id="s15"></button>
+                    </td>
+                    <td>
+                        <button class="spot c4 h7 h8 h9 v10 v11 v12" id="s16"></button>
+                    </td>
+                    <td>
+                        <button class="spot c5 h8 h9 v13 v14 v15" id="s17"></button>
+                    </td>
+                    <td>
+                        <button class="spot c6 h9 v16 v17 v18" id="s18"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="spot c1 h10 v1 v2 v3" id="s19"></button>
+                    </td>
+                    <td>
+                        <button class="spot c2 h10 h11 v4 v5 v6" id="s20"></button>
+                    </td>
+                    <td>
+                        <button class="spot c3 h10 h11 h12 v7 v8 v9" id="s21"></button>
+                    </td>
+                    <td>
+                        <button class="spot c4 h10 h11 h12 v10 v11 v12" id="s22"></button>
+                    </td>
+                    <td>
+                        <button class="spot c5 h11 h12 v13 v14 v15" id="s23"></button>
+                    </td>
+                    <td>
+                        <button class="spot c6 h12 v16 v17 v18" id="s24"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="spot c1 h13 v2 v3" id="s25"></button>
+                    </td>
+                    <td>
+                        <button class="spot c2 h13 h14 v5 v6" id="s26"></button>
+                    </td>
+                    <td>
+                        <button class="spot c3 h13 h14 h15 v8 v9" id="s27"></button>
+                    </td>
+                    <td>
+                        <button class="spot c4 h13 h14 h15 v11 v12" id="s28"></button>
+                    </td>
+                    <td>
+                        <button class="spot c5 h14 h15 v14 v15" id="s29"></button>
+                    </td>
+                    <td>
+                        <button class="spot c6 h15 v17 v18" id="s30"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="spot c1 h16 v3" id="s31"></button>
+                    </td>
+                    <td>
+                        <button class="spot c2 h16 h17 v6" id="s32"></button>
+                    </td>
+                    <td>
+                        <button class="spot c3 h16 h17 h18 v9" id="s33"></button>
+                    </td>
+                    <td>
+                        <button class="spot c4 h16 h17 h18 v12" id="s34"></button>
+                    </td>
+                    <td>
+                        <button class="spot c5 h17 h18 v15" id="s35"></button>
+                    </td>
+                    <td>
+                        <button class="spot c6 h18 v18" id="s36"></button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="msg" id="msg"></div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/js/ConnectFourTypeScript.js">       
+    </script>
+}
